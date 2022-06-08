@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_auth/services/auth_service.dart';
 import 'package:flutter_svg/svg.dart';
-
+import '../../utils/ui.dart';
 import '../Signup/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -10,7 +11,8 @@ class LoginScreen extends StatelessWidget {
 
   final TextEditingController _emailCtrl = TextEditingController();
   final TextEditingController _passwordCtrl = TextEditingController();
-  final TextEditingController _confirmPasswordCtrl = TextEditingController();
+  final AuthService _authService = AuthService();
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 15),
             TextField(
               controller: _passwordCtrl,
+              obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
@@ -51,7 +54,17 @@ class LoginScreen extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onLongPress: (){},
+                onPressed: () async {
+                  if (_emailCtrl.text.isEmpty || _passwordCtrl.text.isEmpty){
+                    UiUtils.showSnackbarError(context, 'All fields are required');
+                  } else {
+                    final user = await _authService.LoginUser(
+                        _emailCtrl.text, _passwordCtrl.text);
+                    if(user != null){
+                      print(user);
+                    }
+                  }
+                },
                 child: const Text('Log In',
                     style: TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold)),
@@ -59,7 +72,7 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             TextButton(
-              child: const Text('Dont have an account yet? Sign Up'),
+              child: const Text("Don't have an account yet? Sign Up"),
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
               },

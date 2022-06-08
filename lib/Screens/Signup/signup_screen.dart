@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth/Screens/Login/login_screen.dart';
+import 'package:flutter_auth/services/auth_service.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../utils/ui.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({
@@ -10,6 +13,7 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController _emailCtrl = TextEditingController();
   final TextEditingController _passwordCtrl = TextEditingController();
   final TextEditingController _confirmPasswordCtrl = TextEditingController();
+  final AuthService _authService = AuthService();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -39,6 +43,7 @@ class SignUpScreen extends StatelessWidget {
             const SizedBox(height: 15),
             TextField(
               controller: _passwordCtrl,
+              obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
@@ -47,6 +52,7 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(height: 15),
             TextField(
               controller: _confirmPasswordCtrl,
+              obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Confirm Password',
                 border: OutlineInputBorder(),
@@ -57,7 +63,19 @@ class SignUpScreen extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onLongPress: (){},
+                onPressed: () async {
+                  if (_emailCtrl.text.isEmpty || _passwordCtrl.text.isEmpty){
+                    UiUtils.showSnackbarError(context, 'All fields are required');
+                  }else if (_passwordCtrl.text != _confirmPasswordCtrl.text){
+                    UiUtils.showSnackbarError(context, 'Password do not match');
+                  } else {
+                    final user = await _authService.registerUser(
+                        _emailCtrl.text, _passwordCtrl.text);
+                    if(user != null){
+                      print(user);
+                    }
+                  }
+                },
                 child: const Text('Submit',
                     style: TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold)),
@@ -75,4 +93,6 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
-}
+
+
+  }
