@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,7 +25,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -46,31 +46,30 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBqe5U4ZZF_BjEY2GlzQyORhl07EybgZmU',
+    appId: '1:546874047247:web:20939db5a67e8d7b5adc7a',
+    messagingSenderId: '546874047247',
+    projectId: 'meditationapp-a509e',
+    authDomain: 'meditationapp-a509e.firebaseapp.com',
+    storageBucket: 'meditationapp-a509e.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDydTAA6JqTjqz8uhVh90sUY7m50dL6VaI',
-    appId: '1:61356988395:android:92546bd45eeb9a0ccdebae',
-    messagingSenderId: '61356988395',
-    projectId: 'zencloud-8c137',
-    storageBucket: 'zencloud-8c137.appspot.com',
+    apiKey: 'AIzaSyBSzdaQhExYZaqWDR5U9EsQ3xeaPnI626o',
+    appId: '1:546874047247:android:dd17b4988458cae75adc7a',
+    messagingSenderId: '546874047247',
+    projectId: 'meditationapp-a509e',
+    storageBucket: 'meditationapp-a509e.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCgSyvW5c1v9jMcBMSUreMC3f4HCay-NdU',
-    appId: '1:61356988395:ios:098be7c74b04fbedcdebae',
-    messagingSenderId: '61356988395',
-    projectId: 'zencloud-8c137',
-    storageBucket: 'zencloud-8c137.appspot.com',
-    iosClientId: '61356988395-rmttjjjl2gcif7qe7937krkvbfnpdtmv.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCKCr8aOrtEwDOtfkYAgVmoWAlhH_BdYWI',
+    appId: '1:546874047247:ios:0eb80841e5167f605adc7a',
+    messagingSenderId: '546874047247',
+    projectId: 'meditationapp-a509e',
+    storageBucket: 'meditationapp-a509e.appspot.com',
+    iosClientId: '546874047247-1la94c4at6uq73pb6tcek4cps2p59cej.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterAuth',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCgSyvW5c1v9jMcBMSUreMC3f4HCay-NdU',
-    appId: '1:61356988395:ios:7a85581441d3fb75cdebae',
-    messagingSenderId: '61356988395',
-    projectId: 'zencloud-8c137',
-    storageBucket: 'zencloud-8c137.appspot.com',
-    iosClientId: '61356988395-47qm3tfjqli393scnncif4hha5os3cm5.apps.googleusercontent.com',
-    iosBundleId: 'com.example.mobile.meditationapp',
   );
 }

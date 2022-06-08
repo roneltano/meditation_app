@@ -1,148 +1,40 @@
 {
   "project_info": {
-    "project_number": "61356988395",
-    "project_id": "zencloud-8c137",
-    "storage_bucket": "zencloud-8c137.appspot.com"
+    "project_number": "546874047247",
+    "project_id": "meditationapp-a509e",
+    "storage_bucket": "meditationapp-a509e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:61356988395:android:253fd64e6d220644cdebae",
-        "android_client_info": {
-          "package_name": "com.example.demo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDydTAA6JqTjqz8uhVh90sUY7m50dL6VaI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "61356988395-9e2bh4rohchmo6dqspjm46n57n8mud4e.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.zenCloud"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:61356988395:android:92546bd45eeb9a0ccdebae",
+        "mobilesdk_app_id": "1:546874047247:android:dd17b4988458cae75adc7a",
         "android_client_info": {
           "package_name": "com.example.flutter_auth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
+          "client_id": "546874047247-cf5i51r80fp6337u469smsvdejevecj9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDydTAA6JqTjqz8uhVh90sUY7m50dL6VaI"
+          "current_key": "AIzaSyBSzdaQhExYZaqWDR5U9EsQ3xeaPnI626o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
+              "client_id": "546874047247-cf5i51r80fp6337u469smsvdejevecj9.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "61356988395-9e2bh4rohchmo6dqspjm46n57n8mud4e.apps.googleusercontent.com",
+              "client_id": "546874047247-1la94c4at6uq73pb6tcek4cps2p59cej.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.zenCloud"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:61356988395:android:85c1f34d725e1009cdebae",
-        "android_client_info": {
-          "package_name": "com.example.meditation_trackerapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDydTAA6JqTjqz8uhVh90sUY7m50dL6VaI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "61356988395-9e2bh4rohchmo6dqspjm46n57n8mud4e.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.zenCloud"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:61356988395:android:3bb83cd7cbfbbf5dcdebae",
-        "android_client_info": {
-          "package_name": "com.example.zen_cloud"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDydTAA6JqTjqz8uhVh90sUY7m50dL6VaI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "61356988395-e0t4qr24g9p2g49c25a479sdk82pq1hh.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "61356988395-9e2bh4rohchmo6dqspjm46n57n8mud4e.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.zenCloud"
+                "bundle_id": "com.example.flutterAuth"
               }
             }
           ]
