@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/components/duration.dart';
+import 'package:flutter_auth/components/new_duration.dart';
 
 class DeepRelaxScreen extends StatelessWidget {
   const DeepRelaxScreen({Key key}) : super(key: key);
@@ -26,8 +26,10 @@ class DeepRelaxScreen extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            Center(
-              child: SizedBox(child: Duration()),
+            Expanded(
+              child: Center(
+                child: SizedBox(child: Duration()),
+              ),
             )
           ]),
         ),

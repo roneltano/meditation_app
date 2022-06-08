@@ -1,25 +1,48 @@
-// ignore_for_file: prefer_const_constructors
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:time_pickerr/time_pickerr.dart';
 
 class Duration extends StatefulWidget {
-  const Duration({
-    Key key,
-  }) : super(key: key);
+  const Duration({Key key}) : super(key: key);
 
   @override
   State<Duration> createState() => _DurationState();
 }
 
+buildCustomTimer(BuildContext context) {
+  return CustomHourPicker(
+    elevation: 2,
+    onPositivePressed: (context, time) {
+      print('onPositive');
+    },
+    onNegativePressed: (context) {
+      print('onNegative');
+    },
+  );
+}
+
 class _DurationState extends State<Duration> {
-  int seconds;
-  int hour;
-  int minute;
-  int _duration;
-  final CountDownController _controller = CountDownController();
+  buildCustomTimer(BuildContext context) {
+    return CustomHourPicker(
+      elevation: 2,
+      onPositivePressed: (context, time) {
+        print('onPositive');
+      },
+      onNegativePressed: (context) {
+        print('onNegative');
+      },
+    );
+  }
+
+  Future openTimePicker() => showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return buildCustomTimer(context);
+        },
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +50,10 @@ class _DurationState extends State<Duration> {
       children: [
         SizedBox(
           height: 77,
-          width: 500,
+          width: 300,
           child: InkWell(
               child: (Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -69,7 +92,7 @@ class _DurationState extends State<Duration> {
               width: MediaQuery.of(context).size.width / 2,
               height: MediaQuery.of(context).size.height / 2,
               fillColor: Colors.green[500],
-              duration: _duration,
+              duration: 10,
               ringColor: Colors.white,
               backgroundColor: Colors.white,
             ),
@@ -89,38 +112,4 @@ class _DurationState extends State<Duration> {
       ],
     );
   }
-
-  Future openTimePicker() => showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return buildCustomTimer(context);
-        },
-      );
-
-  buildCustomTimer(BuildContext context) {
-    return CustomHourPicker(
-      elevation: 2,
-      onPositivePressed: (context, time) {
-        // hm.setHour = time.toString();
-        hour = time.hour.toInt();
-        minute = time.minute.toInt();
-        print(hour);
-        print(minute);
-      },
-      onNegativePressed: (context) {
-        print('onNegative');
-      },
-    );
-  }
 }
-
-Function convertToSeconds() => (int hour, int mins) {
-      var dt = DateTime.now();
-      int newHour = hour - dt.hour;
-      int newMins = mins - dt.minute;
-      int x = newHour * 3600;
-      int y = newMins * 60;
-      int seconds = x + y;
-      _DurationState()._duration = seconds;
-      return seconds;
-    };
